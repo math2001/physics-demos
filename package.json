@@ -1,0 +1,23 @@
+{
+  "name": "physics-demos",
+  "version": "1.0.0",
+  "description": "> Built by Mathieu Paturel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/math2001/physics-demos.git"
+  },
+  "author": "Mathieu Paturel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/math2001/physics-demos/issues"
+  },
+  "homepage": "https://github.com/math2001/physics-demos#readme",
+  "devDependencies": {
+    "typescript": "^4.3.2"
+  }
+}
