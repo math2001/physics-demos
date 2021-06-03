@@ -18,7 +18,7 @@ function resizeCanvasAccordingToCSS(canvas: HTMLCanvasElement) {
 }
 
 function drawSatellite(c: CanvasRenderingContext2D, x: number, y: number) {
-  const radius = 15;
+  const radius = 0.03 * c.canvas.width;
   c.save();
   c.fillStyle = "red";
   c.beginPath();
@@ -36,7 +36,7 @@ function drawSatellite(c: CanvasRenderingContext2D, x: number, y: number) {
 }
 
 function drawCenter(c: CanvasRenderingContext2D) {
-  const radius = 10;
+  const radius = 0.02 * c.canvas.width;
   c.save();
   c.fillStyle = "blue";
   c.beginPath();
@@ -67,7 +67,7 @@ function drawVector(
 ) {
   c.save();
   c.strokeStyle = color;
-  c.lineWidth = 1;
+  c.lineWidth = 2;
   c.beginPath();
   c.moveTo(startX * c.canvas.width, startY * c.canvas.width);
   c.lineTo(endX * c.canvas.width, endY * c.canvas.width);
@@ -85,14 +85,16 @@ function drawVectors(
   const length = Math.sqrt((x - 0.5) * (x - 0.5) + (y - 0.5) * (y - 0.5));
   centripitalAcceleration /= 5;
   tangentialAcceleration /= 5;
+
   drawVector(
     c,
-    "green",
+    "purple",
     x,
     y,
     x + ((0.5 - x) * centripitalAcceleration) / length,
     y + ((0.5 - y) * centripitalAcceleration) / length
   );
+
   drawVector(
     c,
     "purple",
@@ -100,6 +102,15 @@ function drawVectors(
     y,
     x + (0.5 - y) * tangentialAcceleration,
     y - (0.5 - x) * tangentialAcceleration
+  );
+
+  drawVector(
+    c,
+    "green",
+    x,
+    y,
+    x + ((0.5 - x) * centripitalAcceleration) / length + (0.5 - y) * tangentialAcceleration,,
+    y + ((0.5 - y) * centripitalAcceleration) / length - (0.5 - x) * tangentialAcceleration
   );
 }
 
