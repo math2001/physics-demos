@@ -71,6 +71,33 @@ function drawVector(
   c.beginPath();
   c.moveTo(startX * c.canvas.width, startY * c.canvas.width);
   c.lineTo(endX * c.canvas.width, endY * c.canvas.width);
+  const distance = Math.sqrt(
+    (endX - startX) * (endX - startX) + (endY - startY) * (endY - startY)
+  );
+  const normalizedDx = (endX - startX) / distance;
+  const normalizedDy = (endY - startY) / distance;
+  const length = 0.01;
+  c.lineTo(
+    (endX -
+      normalizedDx * length * Math.SQRT2 +
+      normalizedDy * length * Math.SQRT2) *
+      c.canvas.width,
+    (endY -
+      normalizedDx * length * Math.SQRT2 -
+      normalizedDy * length * Math.SQRT2) *
+      c.canvas.width
+  );
+  c.moveTo(endX * c.canvas.width, endY * c.canvas.width);
+  c.lineTo(
+    (endX -
+      normalizedDx * length * Math.SQRT2 -
+      normalizedDy * length * Math.SQRT2) *
+      c.canvas.width,
+    (endY +
+      normalizedDx * length * Math.SQRT2 -
+      normalizedDy * length * Math.SQRT2) *
+      c.canvas.width
+  );
   c.stroke();
   c.restore();
 }
@@ -109,8 +136,12 @@ function drawVectors(
     "green",
     x,
     y,
-    x + ((0.5 - x) * centripitalAcceleration) / length + (0.5 - y) * tangentialAcceleration,,
-    y + ((0.5 - y) * centripitalAcceleration) / length - (0.5 - x) * tangentialAcceleration
+    x +
+      ((0.5 - x) * centripitalAcceleration) / length +
+      (0.5 - y) * tangentialAcceleration,
+    y +
+      ((0.5 - y) * centripitalAcceleration) / length -
+      (0.5 - x) * tangentialAcceleration
   );
 }
 
