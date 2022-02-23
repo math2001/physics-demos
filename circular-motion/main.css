@@ -1,6 +1,9 @@
 body {
   margin: 0;
   font-family: monospace;
+  width: 100%;
+  max-width: 640px;
+  margin: auto;
 }
 
 p {
@@ -16,7 +19,7 @@ input[type=range] {
 }
 
 canvas {
-  width: 100vw;
+  width: 100%;
   display: block;
 }
 

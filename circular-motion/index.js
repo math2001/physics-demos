@@ -37,7 +37,6 @@ function main() {
     tforceinput = document.getElementById("t-force-input")
     tom = document.getElementById('tom')
 
-
     document.getElementById("t-force-badge").style.backgroundColor = yellow
     document.getElementById("c-force-badge").style.backgroundColor = blue
     document.getElementById("n-force-badge").style.backgroundColor = pink
