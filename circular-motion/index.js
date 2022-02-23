@@ -141,7 +141,7 @@ function frame() {
     endX = x + Math.sin(tangle) * tlength + Math.sin(cangle) * clength
     endY = y - Math.cos(tangle) * tlength - Math.cos(cangle) * clength
     let xshift = 0, yshift = 0
-    if (Math.abs(tforce) <= 0.1) {
+    if (Math.abs(tforce) <= 0.00001) {
         const sign = tforce >= 0 ? 1 : -1;
         const shift = 10 * sign;
         xshift = shift * Math.cos(theta)
