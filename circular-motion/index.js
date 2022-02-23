@@ -49,10 +49,20 @@ function main() {
     })
 
     const pauseBtn = document.getElementById("pause")
-    pauseBtn.textContent = pause ? "Spin" : "Pause"
-    pauseBtn.addEventListener('click', (e) => {
+    const togglePause = () => {
         pause = !pause;
-        e.target.textContent = pause ? "Spin" : "Pause"
+        pauseBtn.textContent = pause ? "Spin" : "Pause"
+    }
+
+    pause = !pause
+    togglePause()
+
+    pauseBtn.addEventListener('click', togglePause)
+    document.addEventListener('keydown', e => {
+        if (e.key == " ") {
+            e.preventDefault()
+            togglePause()
+        }
     })
 
     setCanvasSize()
