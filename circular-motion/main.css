@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  font-family: monospace;
+}
+
+p {
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 16px;
+}
+
+input[type=range] {
+  width: 100%;
+  margin: auto;
+  display: block;
+}
+
+canvas {
+  width: 100vw;
+  display: block;
+}
+
+button {
+  display: block;
+  width: 100%;
+}
+
+.color-badge {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: lightgrey;
+  vertical-align: baseline;
+}
+
+footer {
+  color: rgb(34, 32, 32);
+  text-align: center;
+  font-size: small;
+}
+
+.note {
+  font-style: italic;
+}

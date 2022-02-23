@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <title>Circular motion</title>
+</head>
+<body>
+    <canvas id="#canvas"></canvas>
+    <p>
+        <label for="t-force-input">
+            <span class="color-badge" id="t-force-badge"></span>
+            <u>Tangential force</u>: <span id="t-force-span">x</span> N</label>
+    </p>
+    <p>
+        <input type="range" min="-100" max="100" id="t-force-input">
+    </p>
+    <p>
+        <button id="pause">Pause</button>
+    </p>
+    <p>
+        <span class="color-badge" id="c-force-badge"></span>
+        <u>Centripital force</u>: <b>mv^2/r</b>
+        It always points towards the center.
+    </p>
+    <p>
+        <span class="color-badge" id="n-force-badge"></span>
+        <u>Net force</u>: tangential force + centripital force
+    </p>
+    <ol>
+        <li>When does the net force point towards the center?</li>
+        <li>What does the tangential force do?</li>
+        <li>When is the centripital force large? When is it small?</li>
+    </ol>
+    <p class="note">
+        The magnitude of the vectors grow as they should, however the
+        centripital force vector is scaled down by a constant factor compared to
+        the tangential one, so the they fit on the screen.
+    </p>
+
+    <footer>
+        <p>Mathieu Paturel, Feb 2022</p>
+    </footer>
+
+    <div style="display:none;">
+        <img id="tom" src="tom.png" width="174" height="174">
+      </div>
+    <script src="./index.js"></script>
+</body>
+</html>

@@ -12,9 +12,8 @@ function querySelector<T extends Element>(
 function resizeCanvasAccordingToCSS(canvas: HTMLCanvasElement) {
   const rect = canvas.getBoundingClientRect();
   // const size = Math.floor(Math.min(rect.width, rect.height));
-  const size = rect.width;
-  canvas.width = size;
-  canvas.height = size;
+  canvas.width = rect.width;
+  canvas.height = rect.height;
 }
 
 function drawSatellite(c: CanvasRenderingContext2D, x: number, y: number) {
