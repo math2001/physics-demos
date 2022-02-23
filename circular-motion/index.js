@@ -22,10 +22,6 @@ function setCanvasSize() {
     canvas.height = canvasSize;
 }
 
-function r() {
-    return canvasSize / 2 - radius - 20
-}
-
 function displayTforce() {
     return Math.round(tforce * 20 * 100) / 100
 }
@@ -116,13 +112,11 @@ function frame() {
         omega += tforce * dt / 2
         theta += omega * dt
     }
-    const x = canvasSize / 2 + Math.sin(theta) * r()
-    const y = canvasSize / 2 - Math.cos(theta) * r()
+    const r = canvasSize / 2 - radius - 20
+    const x = canvasSize / 2 + Math.sin(theta) * r
+    const y = canvasSize / 2 - Math.cos(theta) * r
 
     c.fillStyle = "blue"
-    // c.beginPath()
-    // c.ellipse(x, y, radius, radius, 0, 0, 2 * Math.PI)
-    // c.fill()
     c.drawImage(tom, x - radius, y - radius, radius * 2, radius * 2)
 
     const scale = 50
@@ -148,7 +142,8 @@ function frame() {
     endY = y - Math.cos(tangle) * tlength - Math.cos(cangle) * clength
     let xshift = 0, yshift = 0
     if (Math.abs(tforce) <= 0.1) {
-        const shift = 5 * tforce / Math.abs(tforce)
+        const sign = tforce >= 0 ? 1 : -1;
+        const shift = 10 * sign;
         xshift = shift * Math.cos(theta)
         yshift = shift * Math.sin(theta)
     }
